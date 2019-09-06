@@ -15,3 +15,8 @@ header#main-header .header-content{
     align-items: center;
     justify-content: space-between;
 }
+
+header#main-header div{
+    font-size: 16px;
+    color: black;
+}

@@ -1,0 +1,50 @@
+form#register {
+    width: 100%;
+    max-width: 580px;
+    margin: 30px auto 0;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #ddd;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form#register input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+form#register input{
+    height: 38px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 0 20px;
+    font-size: 14px;
+    width: 100%;
+}
+
+form#register button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: 0;
+    background: #7159c1;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+form#register text{
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+form#register #title {
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 0 25px 0;
+}

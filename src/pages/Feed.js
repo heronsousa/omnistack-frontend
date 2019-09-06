@@ -14,11 +14,13 @@ class Feed extends Component{
     };
 
     async componentDidMount(){
-        // this.registerToSocket();
+        this.registerToSocket();
 
         const response = await api.get('posts');
 
         this.setState({ feed: response.data  }); 
+
+        console.log(this.state.feed);
     }
 
     registerToSocket = () => {
