@@ -1,4 +1,4 @@
-export const TOKEN_KEY = "@insta-Token";
+export const TOKEN_KEY = "";
 
 export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 

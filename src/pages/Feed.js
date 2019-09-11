@@ -18,9 +18,7 @@ class Feed extends Component{
 
         const response = await api.get('posts');
 
-        this.setState({ feed: response.data  }); 
-
-        console.log(this.state.feed);
+        this.setState({ feed: response.data });
     }
 
     registerToSocket = () => {

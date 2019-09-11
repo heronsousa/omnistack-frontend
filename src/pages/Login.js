@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../services/api';
+import { login } from '../services/auth';
+import { setUser } from '../services/user';
 import './Login.css';
 
 class Register extends Component {
   
   state = {
     email: '',
-    password: ''
+    password: '',
+    error: ""
   }
 
   handelSubmit = async e => {
@@ -17,13 +20,19 @@ class Register extends Component {
       'email': this.state.email,
       'password': this.state.password
     }
+    try {
+      
+      const response = await api.post('auth', data);
+      login(response.data.token);
+      setUser(response.data.user.name);
+      this.props.history.push('/');
 
-    console.log('AQUIIIIIIIIIIIIIII')
-    console.log(data)
+    } catch (erro) {
+      
+      this.setState({ error: erro.response.data.error });
+    
+    }
 
-    await api.post('auth', data);
-
-    this.props.history.push('/');
   }
 
   handelChange = e => {
@@ -35,6 +44,8 @@ class Register extends Component {
       <form id="register" onSubmit={this.handelSubmit}>
 
         <text id='title'>LOGIN</text>
+
+        {this.state.error && <p>{this.state.error}</p>}
 
         <input
             type='text'
@@ -56,7 +67,7 @@ class Register extends Component {
 
         <text id='create-text'>Ainda não possui cadastro?</text>
         
-        <Link style={{ textDecoration: 'none' }}>Criar nova conta</Link>
+        <Link to='/register' style={{ textDecoration: 'none' }}>Criar nova conta</Link>
       </form>
     );
   }

@@ -11,6 +11,15 @@ form#register {
     flex-direction: column;
 }
 
+form#register p {
+    color: #ff3333;
+    margin-bottom: 15px;
+    border: 1px solid #ff3333;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
 form#register input {
     margin-bottom: 10px;
     width: 100%;
