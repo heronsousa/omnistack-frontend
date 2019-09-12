@@ -8,30 +8,31 @@ import logo from '../assets/logo.svg';
 import camera from '../assets/camera.svg';
 
 class Header extends Component {
-  
-  render(){
+
+  render() {
     return (
       <header id='main-header'>
-          <div className='header-content'>
-              
-              <Link to='/'>
-                <img src={logo} alt='Logo'/>
-              </Link>
-              
-              <Link to='/new'>
-                <img src={camera} alt='Enviar publicação'/>
-              </Link>    
+        <div className='header-content'>
 
-              {isAuthenticated() ?
-              <Link to='/perfil' style={{ textDecoration: 'none' }}> 
-                <div>{ getUser() }</div>
-              </Link>
-              :
-              <Link to='/login' style={{ textDecoration: 'none' }}> 
-                <div>Entrar</div>
-              </Link>}
+          <Link to='/'>
+            <img src={logo} alt='Logo' />
+          </Link>
 
-          </div>
+          <Link to='/new'>
+            <img src={camera} alt='Enviar publicação' />
+          </Link>
+
+          {isAuthenticated() ?
+            <Link to='/perfil' style={{ textDecoration: 'none' }}>
+              <div>{getUser()}</div>
+            </Link>
+            :
+            <Link to='/login' style={{ textDecoration: 'none' }}>
+              <div>Entrar</div>
+            </Link>
+            }
+
+        </div>
       </header>
     );
   }

@@ -26,6 +26,7 @@ class Register extends Component {
       login(response.data.token);
       setUser(response.data.user.name);
       this.props.history.push('/');
+      window.location.reload(); 
 
     } catch (erro) {
       

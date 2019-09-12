@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { logout } from '../services/auth';
 import api from '../services/api.js';
 import io from 'socket.io-client';
 import './Feed.css'
@@ -8,7 +9,8 @@ import like from '../assets/like.svg';
 import send from '../assets/send.svg';
 import comment from '../assets/comment.svg';
 
-class Feed extends Component {
+class Perfil extends Component {
+
   state = {
     feed: [],
   };
@@ -16,7 +18,7 @@ class Feed extends Component {
   async componentDidMount() {
     this.registerToSocket();
 
-    const response = await api.get('posts');
+    const response = await api.get('myposts');
 
     this.setState({ feed: response.data });
   }
@@ -41,8 +43,14 @@ class Feed extends Component {
     api.post(`/posts/${id}/like`);
   }
 
+  Logout = () => {
+    logout();
+    this.props.history.push('/');
+    window.location.reload(); 
+  }
+
   render() {
-    return (
+    return(
       <section id='post-list'>
         {this.state.feed.map(post => (
           <article key={post._id}>
@@ -80,4 +88,4 @@ class Feed extends Component {
   }
 }
 
-export default Feed;
+export default Perfil;
